@@ -2,6 +2,8 @@ import ReactNativeAsyncStorage from '@react-native-async-storage/async-storage';
 import { initializeApp } from "firebase/app";
 import { Auth, getAuth, getReactNativePersistence, initializeAuth } from "firebase/auth";
 import { Platform } from 'react-native';
+// 1. Import Firestore
+import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBFFWd82UPzjT8EspAp_RViH8skt8Ls99s",
@@ -14,16 +16,18 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
+// 2. Initialize Firestore
+const db = getFirestore(app);
+
 let auth: Auth;
 
-// Conditionally initialize auth with persistence for native platforms
 if (Platform.OS === 'ios' || Platform.OS === 'android') {
   auth = initializeAuth(app, {
     persistence: getReactNativePersistence(ReactNativeAsyncStorage)
   });
 } else {
-  // For web, initialize auth without React Native persistence
   auth = getAuth(app);
 }
 
-export { app, auth };
+// 3. Export db along with app and auth
+export { app, auth, db };

@@ -48,3 +48,21 @@ Join our community of developers creating universal apps.
 
 - [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
 - [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+
+
+
+
+
+(1)-If you keep using getDoc, there isn't a dependency variable that will automatically detect changes inside Firestore. getDoc is a "one-and-done" request—it fetches the data once and stops.
+
+To get the data to update whenever it changes in the database, you have two options:
+
+Option 1: The "Real-Time" Way (Recommended)
+Instead of getDoc, use onSnapshot. This sets up a "listener." You don't even need a dependency array for the data itself because Firestore stays connected and pushes updates to you.
+(2)-if (Platform.OS === 'ios' || Platform.OS === 'android') {
+  auth = initializeAuth(app, {
+    persistence: getReactNativePersistence(ReactNativeAsyncStorage)
+  });
+} else {
+  auth = getAuth(app);
+}

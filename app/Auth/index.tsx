@@ -4,9 +4,7 @@ import React, { useState } from 'react';
 import { Keyboard, Platform, StyleSheet, Text, TouchableWithoutFeedback, View } from 'react-native';
 import { Button, TextInput } from 'react-native-paper';
 import { Colors } from '../../constants/Colors';
-import { auth } from '../../firebase'; // Adjust the path to your firebase.ts file
-
-
+import { auth } from '../../firebase'; 
 
 const LoginScreen = () => {
   const [email, setEmail] = useState<string>('');
@@ -26,7 +24,7 @@ const LoginScreen = () => {
       <View style={styles.container}>
         <Image
           style={styles.image}
-          source={require('../../assets/images/FlightScopeLogo.png')}
+          source={require('../../assets/images/HabitHub_Logo.png')}
           contentFit="cover"
         />
         {error && <Text style={styles.error}>{error}</Text>}
@@ -83,7 +81,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
-    backgroundColor: Colors.light.background,
+    backgroundColor: '#FFFFFF',
   },
   button: {
     width: '35%',
@@ -97,7 +95,7 @@ const styles = StyleSheet.create({
   input: {
     width: '100%',
     marginBottom: 10,
-    backgroundColor: Colors.light.background,
+    backgroundColor: '#FFFFFF',
   },
   error: {
     color: Colors.light.error,
