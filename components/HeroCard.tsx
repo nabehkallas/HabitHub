@@ -1,16 +1,18 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
 type HeroCardProps = {
   userName: string;
-  monthlyGoal: string;
+  monthlyGoal: number;
+  savings: number;
 };
 
-const HeroCard: React.FC<HeroCardProps> = ({ userName, monthlyGoal }) => {
+const HeroCard: React.FC<HeroCardProps> = ({ userName, monthlyGoal, savings }) => {
   return (
     <View style={styles.card}>
       <Text style={styles.title}>Welcome, {userName}!</Text>
       <Text style={styles.goal}>Your Monthly Goal: {monthlyGoal}</Text>
+      <Text style={styles.goal}>Saved : {savings}</Text>
     </View>
   );
 };
