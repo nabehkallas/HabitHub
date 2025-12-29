@@ -6,7 +6,7 @@ is a high-performance mobile marketplace built with React Native (Expo). It serv
 <br>
 <hr>
 <div align="center">
-<img src="./GIF_1.gif" width="250" /> | <img src="./GIF_2.gif" width="250" /> | <img src="./GIF_3.gif" width="250" /> |
+<img src="./GIF_1.GIF" width="250" /> | <img src="./GIF_2.GIF" width="250" /> | <img src="./GIF_3.GIF" width="250" /> |
 </div>
 <hr>
 
