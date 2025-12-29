@@ -22,6 +22,13 @@ export default function TabLayout() {
           title: 'Add Habit',
         }}
       />
+      <Stack.Screen
+        name="History"
+        options={{
+          title: 'History',
+          
+        }}
+      />
     </Stack>
   );
 }

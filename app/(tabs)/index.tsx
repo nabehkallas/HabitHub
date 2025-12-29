@@ -16,6 +16,7 @@ import { useAuth } from '../../context/AuthContext';
 import { auth, db } from '../../firebase';
 
 
+
 export default function Index() {
   const router = useRouter();
   const { user } = useAuth();
@@ -31,7 +32,7 @@ export default function Index() {
   const [currentGoalAmount, setCurrentGoalAmount] = useState(0);
   const [menuVisible, setMenuVisible] = useState(false);
 
-  console.log(user);
+  
   const handleLogout = () => {
     auth.signOut().then(() => {
       Alert.alert('Logged out');
@@ -68,7 +69,7 @@ export default function Index() {
 
       getMonthlySavings(user).then((savings) => {
         setMonthlySavings(savings);
-        console.log('Monthly Savings: ' + savings);
+        
       });
 
      const unsubscribeHabits = onSnapshot(habitsRef, (snapshot) => {
@@ -95,7 +96,7 @@ export default function Index() {
             }
           }
         });
-        console.log("Habits data:", habitsData);
+       
       });
 
       return () => {
@@ -267,12 +268,20 @@ export default function Index() {
         <Image
           source={require('../../assets/images/HabitHub_Logo.png')}
           style={styles.logo}
-          resizeMode="contain"
+          resizeMode="stretch"
         />
         <TouchableOpacity onPress={() => setMenuVisible(!menuVisible)} style={styles.profileIcon}>
           <Icon name="account-circle" type="material" size={35} color="#517fa4" />
         </TouchableOpacity>
       </View>
+
+      {menuVisible && (
+        <TouchableOpacity
+          style={styles.overlay}
+          activeOpacity={1}
+          onPress={() => setMenuVisible(false)}
+        />
+      )}
 
       {menuVisible && (
         <View style={styles.dropdown}>
@@ -282,7 +291,7 @@ export default function Index() {
             <Text style={styles.dropdownSubText}>{userData?.email || user?.email}</Text>
           </View>
           <View style={styles.divider} />
-          <TouchableOpacity style={styles.dropdownItem} onPress={() => { setMenuVisible(false); Alert.alert('History', 'History feature coming soon.'); }}>
+          <TouchableOpacity style={styles.dropdownItem} onPress={() => { setMenuVisible(false); router.push('/History'); }}>
             <Text>History</Text>
           </TouchableOpacity>
           <View style={styles.divider} />
@@ -291,7 +300,6 @@ export default function Index() {
           </TouchableOpacity>
         </View>
       )}
-
       <View style={styles.contentContainer}>
       <SwipeListView
         data={habits}
@@ -353,7 +361,7 @@ export default function Index() {
 
       <View style={styles.footer}>
         <Text style={styles.footerText}>© 2025 HabitHub Inc.</Text>
-        <Text style={styles.footerText}>made by Eng.Nameh kallas</Text>
+        <Text style={styles.footerText}>made by Eng.Nabeh kallas</Text>
       </View>
 
       <FAB
@@ -385,6 +393,7 @@ const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
     backgroundColor: '#fff',
+    
   },
   contentContainer: {
     flex: 1,
@@ -427,18 +436,20 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 20,
-    paddingVertical: 10,
+
     backgroundColor: '#fff',
     borderBottomWidth: 1,
     borderBottomColor: '#eee',
     zIndex: 1,
   },
   logo: {
-    width: 120,
-    height: 40,
+    width: 100,
+    height: 100,
+    
   },
   profileIcon: {
     padding: 5,
+    
   },
   dropdown: {
     position: 'absolute',
@@ -463,7 +474,19 @@ const styles = StyleSheet.create({
   dropdownText: { fontSize: 14 },
   dropdownSubText: { fontSize: 12, color: 'gray' },
   divider: { height: 1, backgroundColor: '#eee', marginVertical: 2 },
+  overlay: {
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    zIndex: 999,
+  },
   footer: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
     padding: 15,
     backgroundColor: '#f9f9f9',
     alignItems: 'center',

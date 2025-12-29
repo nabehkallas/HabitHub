@@ -1,7 +1,7 @@
 
 import { Button, Icon, Text } from '@rneui/themed';
 import React, { useEffect, useState } from 'react';
-import { Modal, StyleSheet, TextInput, TouchableOpacity, View } from 'react-native';
+import { Keyboard, Modal, StyleSheet, TextInput, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native';
 import { default as Habit } from '../constants/Types';
 
 interface EditHabitModalProps {
@@ -43,6 +43,7 @@ export default function EditHabitModal({ visible, habit, onClose, onSave }: Edit
       visible={visible}
       onRequestClose={onClose}
     >
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View style={styles.centeredView}>
         <View style={styles.modalView}>
           <Text h4 style={{ marginBottom: 15 }}>Edit Habit</Text>
@@ -80,6 +81,7 @@ export default function EditHabitModal({ visible, habit, onClose, onSave }: Edit
           </View>
         </View>
       </View>
+      </TouchableWithoutFeedback>
     </Modal>
   );
 }

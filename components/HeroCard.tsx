@@ -1,5 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import PieChart from './PieChart';
+
 
 type HeroCardProps = {
   userName: string;
@@ -10,6 +12,9 @@ type HeroCardProps = {
 const HeroCard: React.FC<HeroCardProps> = ({ userName, monthlyGoal, savings }) => {
   return (
     <View style={styles.card}>
+      <PieChart monthlyGoal={monthlyGoal}
+              savings={savings} />
+              
       <Text style={styles.title}>Welcome, {userName}!</Text>
       <Text style={styles.goal}>Your Monthly Goal: {monthlyGoal}</Text>
       <Text style={styles.goal}>Saved : {savings}</Text>
