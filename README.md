@@ -1,7 +1,7 @@
 <b>
 HabitHub
 </b>  
-is a high-performance mobile marketplace built with React Native (Expo). It serves as a proof-of-concept for a creator-economy platform, allowing users to discover bloggers, view transparent video pricing, and access exclusive promotional offers. The project demonstrates advanced frontend patterns including Server-State Management, Optimized Search, and Custom Navigation.\
+is a sophisticated, cross-platform mobile application built with React Native (Expo). It is designed to help users bridge the gap between daily habit tracking and financial goals, allowing them to visualize how small lifestyle changes contribute to monthly savings.
 <br>
 <br>
 <hr>
