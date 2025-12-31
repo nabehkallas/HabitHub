@@ -62,3 +62,12 @@ Developed by Eng. Nabeh Kallas, HabitHub serves as a technical showcase of moder
 <br>
 <br>
 <b>Author</b>Eng. Nabeh Kallas Mobile Development Specialist 
+<br>
+<br>
+Install App Preview : 
+<br>
+<br>
+https://expo.dev/accounts/nabeh_kallas/projects/HabitHub/builds/ea718a49-0088-470a-a590-9ec63cfa1d10
+<br>
+<br>
+
